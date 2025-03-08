@@ -2,6 +2,32 @@
 THis data is from the **Fatality Analysis Reporting System (FARS)**, which provides annual records of **all fatal motor vehicle crashes in the U.S.**.
 The data is available at the **state level** and includes information on the **number of fatalities**, **weather conditions**, and **other factors** related to each accident.
 
+
+
+## 📌 What This Code Does that I made
+
+### 1️⃣ **Loads Traffic Accident Data (2016-2019)**
+- Fars has lots of data for many years and lots of things in each year. I thought these were the main ones we would need.
+- Reads in three key datasets for each year:
+  - **`accident.csv`** → Main dataset containing accident details.
+  - **`DrImpair.csv`** → Information on driver impairment (DUI-related).
+  - **`weather.csv`** → Weather conditions during the accident.
+- If any of these files are missing for a given year, the code **skips** them.
+
+### 2️⃣ **Merges the Data for Each Year**
+- **Joins** the three datasets using a **common accident ID (`ST_CASE`)**.
+- Ensures all accident records are kept, even if impairment or weather data is missing.
+
+### 3️⃣ **Cleans and Optimizes the Data**
+- **Removes unnecessary columns** (e.g., duplicate names, descriptive text columns).
+- **Renames columns** for consistency (`STATENAME_x` → `STATENAME`).
+- Keeps only the most relevant information for analysis.
+
+
+
+
+
+
 #### Important links
 - [FARS Data](https://www.nhtsa.gov/file-downloads?p=nhtsa/downloads/FARS/)
 - [FARS Data Manual](https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/813556)
